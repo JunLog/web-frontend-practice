@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #222;
+  /* fiex布局，默认主轴水平方向 */
+  display: flex;
+  /* justify-content，定义项目在主轴上的对齐方式 */
+  justify-content: center;
+  /* align-items，定义在交叉轴上的对齐方式 */
+  align-items: center;
+  /* vh: 相对于视窗的高度, 视窗被均分为100单位的vh;  */
+  min-height: 100vh;
+}
+
+h1 {
+  color: #333;
+  font-size: 8rem;
+  position: relative;
+}
+h1:after {
+  content: "SPOTLIGHT";
+
+  /* 子绝父相，绝对定位在标准流中占位置，相对定位以父元素作参考物进行定位 
+  脱离标准流
+  */
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* linear-gradient 线性渐变 */
+  /* background: -webkit-linear-gradient(
+    left,
+    #c23616,
+    #192a56,
+    #00d2d3,
+    yellow,
+    #6d214f,
+    #2e86de,
+    #4cd137,
+    #e84118
+  ); */
+  /* 标准语法方向有to，方向好像也不一样 */
+  background: linear-gradient(
+    to left,
+    #c23616,
+    #192a56,
+    #00d2d3,
+    yellow,
+    #6d214f,
+    #2e86de,
+    #4cd137,
+    #e84118
+  );
+  /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip */
+  /* 字体颜色透明，透出背景色 */
+  color: transparent;
+  /* 指定背景元素所在区域，背景显示的地方 */
+  /* 貌似只有webkit内核的浏览器才有 text 这个属性 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* 使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐 */
+  -weblit-clip-path: circle(100px at 0% 50%);
+  clip-path: circle(100px at 0% 50%);
+  /* 动画 */
+  animation: light 5s infinite;
+}
+
+@keyframes light {
+  0% {
+    clip-path: circle(100px at 0% 50%);
+    -weblit-clip-path: circle(100px at 0% 50%);
+  }
+  50% {
+    clip-path: circle(100px at 100% 50%);
+    -weblit-clip-path: circle(100px at 50% 50%);
+  }
+  100% {
+    clip-path: circle(100px at 0% 50%);
+    -weblit-clip-path: circle(100px at 0% 50%);
+  }
+}
