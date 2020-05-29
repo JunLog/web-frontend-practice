@@ -20,7 +20,9 @@ h1 {
   position: relative;
 }
 h1::after {
-  content: "SPOTLIGHT";
+  /* content: "SPOTLIGHT"; */
+  /* 使用html属性值填充 */
+  content: attr(data-spotlight);
 
   /* 子绝父相，绝对定位在标准流中占位置，相对定位以父元素作参考物进行定位 
   脱离标准流
@@ -41,7 +43,7 @@ h1::after {
     #e84118
   ); */
   /* 标准语法方向有to，方向好像也不一样 */
-  background: linear-gradient(
+  /* background: linear-gradient(
     to left,
     #c23616,
     #192a56,
@@ -51,7 +53,11 @@ h1::after {
     #2e86de,
     #4cd137,
     #e84118
-  );
+  ); */
+  background-image: url(https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  background-size: 100%;
+  background-position: center center;
+
   /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip */
   /* 字体颜色透明，透出背景色 */
   color: transparent;
@@ -61,6 +67,7 @@ h1::after {
   -webkit-background-clip: text;
   /* 使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐 */
   -weblit-clip-path: circle(100px at 0% 50%);
+  /* 用前缀的方法要保留原方法 */
   clip-path: circle(100px at 0% 50%);
   /* 动画 */
   animation: light 5s infinite;
@@ -68,12 +75,12 @@ h1::after {
 
 @keyframes light {
   0% {
-    clip-path: circle(100px at 0% 50%);
     -weblit-clip-path: circle(100px at 0% 50%);
+    clip-path: circle(100px at 0% 50%);
   }
   50% {
-    clip-path: circle(100px at 100% 50%);
     -weblit-clip-path: circle(100px at 50% 50%);
+    clip-path: circle(100px at 100% 50%);
   }
   100% {
     clip-path: circle(100px at 0% 50%);
