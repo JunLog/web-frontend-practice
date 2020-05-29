@@ -19,7 +19,7 @@ h1 {
   font-size: 8rem;
   position: relative;
 }
-h1:after {
+h1::after {
   content: "SPOTLIGHT";
 
   /* 子绝父相，绝对定位在标准流中占位置，相对定位以父元素作参考物进行定位 
