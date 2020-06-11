@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>扁平长阴影特效</title>
+  </head>
+  <body>
+    <!-- contentEditable 属性用于设置或返回元素的内容是否可编辑。 -->
+    <div id="text" contenteditable>text</div>
+  </body>
+  <script>
+    let text = document.getElementById("text");
+    let shadow = "";
+    for (let i = 0; i < 200; i++) {
+      // 循环 平移
+      shadow += (shadow ? "," : "") + `${i * 1}px ${i * 1}px 0px #01d1d3`;
+    }
+    console.log(shadow);
+    text.style.textShadow = shadow;
+  </script>
+</html>
