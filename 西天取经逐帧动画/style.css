@@ -1,0 +1,136 @@
+html body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.west {
+  position: relative;
+  /* 相对定位，是在原来的位置的基础上进行移动 */
+  height: 1086px;
+  background-image: url(./ft2_7b14393.webp);
+  background-color: #84a4d2;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.west > div {
+  position: absolute;
+  /* 绝对定位，是父元素左上角为原点的坐标系定位 */
+
+  /* 把 div 的左边缘设置在其 父元素左边缘 右边的 父元素宽度50% 的位置 */
+  left: 50%;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.wukong {
+  /* 8图  1600*180 */
+  width: 200px;
+  height: 180px;
+
+  margin-left: -358px;
+  top: 358px;
+
+  background-image: url(./west_01_3ca39fe.png);
+  animation: move1 1.4s steps(8) infinite;
+}
+.bajie {
+  /* 8图  1600*180 */
+  width: 200px;
+  height: 180px;
+
+  margin-left: -198px;
+  top: 356px;
+
+  background-image: url(./west_02_47bad19.png);
+  animation: move1 1.4s steps(8) infinite;
+}
+.tangseng {
+  /* 8图  1360*240 */
+  /* 宽：1360/8=170 */
+  width: 170px;
+  height: 240px;
+
+  /* 调整一下唐僧的上下位置 */
+  margin-left: -11px;
+  top: 326px;
+
+  background-image: url(./west_03_f962447.png);
+  animation: move2 1.4s steps(8) infinite;
+}
+.shaseng {
+  /* 8图  1680*200 */
+  /* 宽：1680/8=210 */
+  width: 210px;
+  height: 200px;
+
+  margin-left: 198px;
+  top: 372px;
+
+  background-image: url(./west_04_6516d80.png);
+  animation: move3 1.4s steps(8) infinite;
+}
+/* 
+背景图片不显示的原因： 
+1. css没有被调用 
+2. css图片地址不对 
+3. div的高度没有固定，是auto、没有设值或者高度不够 
+4. div被嵌套 
+5. div代码不规范
+ */
+/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+/* 动画属性
+name：绑定到选择器的关键帧的名称
+duration：动画完成的时间
+timing-function：动画如何完成一个周期
+          linear 从头到尾速度相同
+          ease（默认）低俗开始，加快。慢速结束
+          ease-in：低速开始
+          ease-out：  低速结束
+          ease-in-out	动画以低速开始和结束
+          cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值
+                  使用 steps就无法使用 cubic-bezier
+          steps(number[, end | start])两个参数：第一个参数是一个正值，指定动画分割的段数。第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end。start 第一帧是动画结束的时候状态； end 第一帧是动画开始的时候状态
+delay：动画开始前延迟时间
+          负值：动画跳过 * 秒进入动画
+iteration-count：播放次数
+          infinite  无限播放
+direction：是否轮流反向播放动画
+          reverse 反向播放
+          alternate 第奇数次正向播放，偶数次反向播放
+          alternate-reverse：第奇数次反向播放，偶数次正向播放
+fill-mode：动画不播放时，应用元素的样式
+          forward 动画停止时，应用动画结束时的效果
+          backward 动画停止时，应用动画开始时的效果
+          both：不太懂
+*/
+
+@keyframes move1 {
+  /* 悟空、八戒 */
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1600px;
+  }
+}
+
+@keyframes move2 {
+  /* 唐僧 */
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1360px;
+  }
+}
+
+@keyframes move3 {
+  /* 沙僧 */
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1680px;
+  }
+}
